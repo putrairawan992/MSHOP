@@ -8,17 +8,18 @@ import MovieCard from './MovieCard';
 
 const Home = ({ selectedGenre, sortBy, myMovie }) => {
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       const genre = selectedGenre.join('|');
 
-      const res = await read(`discover/movie?with_genres=${genre}&sort_by=${sortBy}&language=en-US`);
-      setMovies(res);
+      const res = await read(`discover/movie?with_genres=${genre}&sort_by=${sortBy}&page=${page}&language=en-US`);
+      page === 1 ? setMovies(res.results) : setMovies([...movies, ...res.results]);
     };
 
     fetchData();
-  }, [selectedGenre, sortBy]);
+  }, [selectedGenre, sortBy, page]);
 
   return (
     <Fragment>
@@ -48,13 +49,22 @@ const Home = ({ selectedGenre, sortBy, myMovie }) => {
             <Col md={9}>
               <Container>
                 <Row>
-                  { movies?.results?.map((item, i) => (
+                  { movies.length > 0 && movies?.map((item, i) => (
                     <Col md={3} sm={6} key={i}>
-                      <MovieCard data={item} />
+                      <MovieCard data={ item } />
                     </Col>
                   )) }
                 </Row>
               </Container>
+
+              <div className="load-more">
+                <button
+                  onClick={() => setPage(page + 1)}
+                  className="btn btn-primary"
+                >
+                  Load More
+                </button>
+              </div>
             </Col>
           </Row>
         </Container>

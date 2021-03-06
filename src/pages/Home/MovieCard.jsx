@@ -45,7 +45,7 @@ const MovieCard = ({ dispatch, data, genres }) => {
 
       <figcaption>
         <h2>{ title }</h2>
-        <p>{ release_date.split('-')[0] }</p>
+        <p>{ release_date?.split('-')[0] }</p>
       </figcaption>
     </figure>
   )
