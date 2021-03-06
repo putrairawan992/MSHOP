@@ -1,0 +1,79 @@
+.trending {
+  padding: 5rem 0;
+
+  &-card {
+    display: flex;
+    height: 364px;
+    margin: auto 1rem;
+  }
+
+  img {
+    width: 243px;
+    object-fit: cover;
+  }
+
+  .info {
+    width: 100%;
+    padding: calcRem(18px) 1rem;
+    margin: 2rem 0;
+    background: $color-ultradark;
+    color: $color-light;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: calcRem(18px);
+
+    span { margin-left: .25rem; }
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: calcRem(28px);
+  }
+
+  .year {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    font-size: calcRem(16px);
+
+    svg {
+      margin: 0 .5rem;
+      fill: $color-text;
+    }
+  }
+
+  p {
+    font-size: calcRem(12px);
+    line-height: calcRem(18px);
+  }
+
+  .slick-dots {
+    margin-top: 2rem;
+    position: relative;
+
+    li button:before {
+      font-size: calcRem(12px);
+      color: $color-light;
+    }
+
+    li.slick-active {
+      width: 50px;
+    }
+
+    li.slick-active button:before {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 10px;
+      background: $color-primary;
+      font-size: 0;
+      opacity: 1;
+      border-radius: 10px;
+      top: 4px;
+    }
+  }
+}

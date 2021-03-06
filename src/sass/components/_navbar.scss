@@ -1,0 +1,70 @@
+.navbar {
+  background: $color-softdark;
+  padding: 1.2rem 0;
+
+  &.transparant {
+    background: rgba($color-softdark, .2);
+    position: absolute;
+    z-index: 1;
+  }
+
+  .row {
+    position: relative;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 7.5rem;
+  }
+
+  nav {
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: right;
+    align-items: center;
+    position: absolute;
+
+    .search {
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    .item {
+      text-transform: uppercase;
+      font-weight: 600;
+      background: transparent;
+      white-space: nowrap;
+      margin: .25rem auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      color: $color-text;
+
+      svg {
+        margin-right: .5rem;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .menu-btn {
+      display: none;
+    }
+
+    nav {
+      position: relative;
+      margin-top: 0;
+      flex-direction: row;
+      justify-content: end;
+
+      .item {
+        margin: auto 1.5rem;
+        width: auto;
+      }
+    }
+  }
+}

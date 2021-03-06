@@ -1,0 +1,38 @@
+.select {
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+  background: $color-softdark;
+  border-radius: 4px;
+  cursor: pointer;
+  padding-right: 11px;
+
+  &::after {
+    content: "";
+    justify-self: end;
+    width: 10px;
+    height: 8px;
+    background: $color-text;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+
+  select { padding: 11px; }
+
+  select,
+  &::after {
+    grid-area: select;
+    color: $color-text;
+  }
+
+  option {
+    background: $color-softdark;
+    outline: 0;
+    border: 0;
+  }
+
+  &-wrap:after {
+    @include hairline;
+    margin-top: 40px;
+  }
+}

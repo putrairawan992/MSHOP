@@ -1,0 +1,15 @@
+footer {
+  font-size: calcRem(13px);
+  background: $color-strongdark;
+  padding: calcRem(50px) 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  img {
+    width: calcRem(90px);
+  }
+}

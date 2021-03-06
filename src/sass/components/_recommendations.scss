@@ -1,0 +1,15 @@
+.recommendations {
+  background: $color-softdark;
+  padding: 4rem 0;
+
+  .row {
+    margin: 0 -1rem;
+    justify-content: space-between;
+  }
+}
+
+.recommendations h2:not(.movie-card h2) {
+  font-weight: 600;
+  color: $color-light;
+  margin-bottom: 2rem;
+}

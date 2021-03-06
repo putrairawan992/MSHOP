@@ -1,0 +1,18 @@
+.movie-filter {
+  background: $color-strongdark;
+  padding: calcRem(18px);
+  border-radius: 8px;
+
+  h3 {
+    font-weight: 600;
+    font-size: calcRem(16px);
+
+    &:after {
+      @include hairline;
+    }
+  }
+
+  .dropdown {
+    margin-bottom: 40px;
+  }
+}

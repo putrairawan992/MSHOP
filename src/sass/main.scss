@@ -1,0 +1,26 @@
+@import "abstracts/variable";
+@import "abstracts/function";
+@import "abstracts/breakpoints";
+
+@import "base/reset";
+@import "base/display";
+
+@import "layout/grid";
+@import "layout/loading";
+@import "layout/main-content";
+
+@import "elements/button";
+@import "elements/checkbox";
+@import "elements/select";
+
+@import "components/categories-menu";
+@import "components/footer";
+@import "components/hero-header";
+@import "components/movie-card";
+@import "components/movie-filter";
+@import "components/movie-over";
+@import "components/navbar";
+@import "components/recommendations";
+@import "components/reviews";
+@import "components/search-bar";
+@import "components/trending-movie";
