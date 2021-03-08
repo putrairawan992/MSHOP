@@ -3,7 +3,8 @@ import setLoading from 'store/actions/Loading';
 import store from 'store';
 
 const axiosInstance = async (method, path, request) => {
-  store.dispatch(setLoading(true));
+  const noLoading = ['search'];
+  noLoading.some(slug => store.dispatch(setLoading(!path.includes(slug))));
 
   const config = {
     method,
@@ -16,7 +17,8 @@ const axiosInstance = async (method, path, request) => {
 
   return axios(config)
     .then(response => {
-      store.dispatch(setLoading(false));
+      setTimeout(() => store.dispatch(setLoading(false)), 1000);
+
       return response.data;
     })
     .catch(error => {

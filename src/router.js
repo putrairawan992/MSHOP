@@ -25,7 +25,7 @@ const RouterManager = ({ progress }) => (
 );
 
 const mapStateToProps = state => ({
-  ...state.modalControl
+  progress: state.isLoading.loading
 })
 
 export default connect(mapStateToProps)(RouterManager);

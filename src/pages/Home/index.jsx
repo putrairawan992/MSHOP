@@ -9,13 +9,16 @@ import MovieCard from './MovieCard';
 const Home = ({ selectedGenre, sortBy, myMovie }) => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const genre = selectedGenre.join('|');
+      const params = `with_genres=${genre}&sort_by=${sortBy}&page=${page}&language=en-US`;
 
-      const res = await read(`discover/movie?with_genres=${genre}&sort_by=${sortBy}&page=${page}&language=en-US`);
-      page === 1 ? setMovies(res.results) : setMovies([...movies, ...res.results]);
+      const res = await read(`discover/movie?${params}`);
+      setCurrentPage(res.page);
+      page !== currentPage ? setMovies([...movies, ...res.results]) : setMovies(res.results);
     };
 
     fetchData();
