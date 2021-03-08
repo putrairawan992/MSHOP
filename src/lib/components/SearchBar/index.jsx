@@ -4,22 +4,19 @@ import { read } from 'utils/api';
 import { Link } from 'react-router-dom';
 import Icon from 'icon';
 
-const SuggestionsList = ({ data, search }) => {
+const SuggestionsList = ({ data, search }) => (
+  <div className="suggestions">
+    { data?.map(({ id, title }) => {
+      const parts = title.split(new RegExp(`(${search})`, 'gi'));
 
-  return (
-    <div className="suggestions">
-      { data?.map(({ id, title }) => {
-        const parts = title.split(new RegExp(`(${search})`, 'gi'));
-
-        return (
-          <Link to={`/movie/${id}`} key={ id }>
-            { parts.map(part => part.toLowerCase() === search.toLowerCase() ? <b>{ part }</b> : part) }
-          </Link>
-        )}
+      return (
+        <Link to={`/movie/${id}`} key={ id }>
+          { parts.map(part => part.toLowerCase() === search.toLowerCase() ? <b>{ part }</b> : part) }
+        </Link>
       )}
-    </div>
-  );
-};
+    ) }
+  </div>
+);
 
 const SearchBar = () => {
   const [search, setSearch] = useState('');
